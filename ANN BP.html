@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 
 
@@ -7,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Iris Naive Bayes</title>
+    <title>ARTIFICIAL NEURAL NETWORK BACKPROPAGATION &#8212; My sample book</title>
   
   
   
@@ -59,10 +60,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'naive';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ANN BP';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Load data CSV ke Excel:" href="21-048_Lu%27luatul%20maknunah_cara%20load%20data%20ke%20pbi.html" />
+    <link rel="next" title="DECISION TREE" href="DT.html" />
+    <link rel="prev" title="Mencoba menggunakan klasifikasi KNN untuk iris data set" href="KNN.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -146,17 +148,21 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
-         <ul class="nav bd-sidenav bd-sidenav__home-link">
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
                     My self Introduction
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="21-048_Lu%27luatul%20maknunah_cara%20load%20data%20ke%20pbi.html">Belajar Load Data</a></li>
-<li class="toctree-l1 urrent active"><a class="reference internal" href="naive.html"><strong>Iris Dataset Untuk Naive Bayes</strong></a></li>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="reference internal" href="21-048_Lu%27luatul%20maknunah_cara%20load%20data%20ke%20pbi.html">Belajar Load Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naive.html">Iris Dataset Untuk Naive Bayes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="21_048_UTS_PENDATAipynb.html">UTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naivebayes.html">NAIVE BAYES</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KNN.html">KNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DT.html">DECISION TREE</a></li>
+<li class="toctree-l1"><a class="current reference internal" href="ANN BP.html"><strong>ANN</strong></a></li>
 </ul>
 
     </div>
@@ -199,6 +205,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <div class="article-header-buttons">
 
+
+
+
+
 <div class="dropdown dropdown-launch-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
     <i class="fas fa-rocket"></i>
@@ -207,7 +217,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://colab.research.google.com/github/LuluatulMaknunah21-048/Pendata/blob/main/naive.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/LuluatulMaknunah21-048/Pendata/blob/main/ANN%20BP.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -255,7 +265,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnaive.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FANN BP.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -285,7 +295,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/naive.ipynb" target="_blank"
+      <li><a href="_sources/ANN BP.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -367,7 +377,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><no title></h1>
+    <h1>ARTIFICIAL NEURAL NETWORK BACKPROPAGATION</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -376,7 +386,16 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">ARTIFICIAL NEURAL NETWORK BACKPROPAGATION</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library-yang-akan-digunakan">Import LIBRARY yang akan digunakan</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#code-dibawah-ini-digunakan-untuk-mengimpor-dan-melihat-data-menggunakan-library-pandas">Code dibawah ini digunakan untuk mengimpor dan melihat data menggunakan library pandas</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library-untuk-mlp-multilayer-perceptron">IMPORT LIBRARY UNTUK MLP (MULTILAYER PERCEPTRON)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membagi-data-uji-dan-data-latih">MEMBAGI DATA UJI DAN DATA LATIH</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menggunakan-library-mlpclassifier-dan-mengatur-parameter-sesuai-dengan-yang-dibutuhkan">MENGGUNAKAN LIBRARY MLPCLASSIFIER DAN MENGATUR PARAMETER SESUAI DENGAN YANG DIBUTUHKAN</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#melakukan-prediksi">MELAKUKAN PREDIKSI</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#akurasi-ann">AKURASI ANN</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membandingkan-nilai-riil-dengan-nilai-prediksi">Membandingkan Nilai Riil dengan Nilai Prediksi</a></li>
 </ul>
 
             </nav>
@@ -389,32 +408,33 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <p>Mencoba menggunakan klasifikasi Naive Bayes untuk iris data set</p>
-<p>Untuk mengimplementasikan Klasifikasi Naive Bayes, kita akan menggunakan Dataset Bunga Iris yang sangat terkenal yang terdiri dari 3 kelas bunga. Dalam hal ini, ada 4 variabel independen yaitu, sepal_length , sepal_width , petal_length dan petal_width . Variabel dependen adalah spesies yang akan kita perkirakan dengan menggunakan empat fitur independen bunga.</p>
-<p>Import LIBRARY yang akan digunakan</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="artificial-neural-network-backpropagation">
+<h1>ARTIFICIAL NEURAL NETWORK BACKPROPAGATION<a class="headerlink" href="#artificial-neural-network-backpropagation" title="Permalink to this heading">#</a></h1>
+<p>Untuk mengimplementasikan Metode ANN , kita akan menggunakan Dataset Bunga Iris yang sangat terkenal yang terdiri dari 3 kelas bunga. Dalam hal ini, ada 4 variabel independen yaitu, sepal_length , sepal_width , petal_length dan petal_width . Variabel dependen adalah spesies yang akan kita perkirakan dengan menggunakan empat fitur independen bunga.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="import-library-yang-akan-digunakan">
+<h1>Import LIBRARY yang akan digunakan<a class="headerlink" href="#import-library-yang-akan-digunakan" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#import library yang diperlukan</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Code dibawah ini digunakan untuk mengimpor dan melihat data menggunakan library pandas</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="code-dibawah-ini-digunakan-untuk-mengimpor-dan-melihat-data-menggunakan-library-pandas">
+<h1>Code dibawah ini digunakan untuk mengimpor dan melihat data menggunakan library pandas<a class="headerlink" href="#code-dibawah-ini-digunakan-untuk-mengimpor-dan-melihat-data-menggunakan-library-pandas" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/mk-gurucharan/Classification/master/IrisDataset.csv&#39;</span><span class="p">)</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,:</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-<span class="n">dataset</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt</span><span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/LuluatulMaknunah21-048/Pendata/main/IrisDataset.csv&#39;</span><span class="p">)</span>
+<span class="n">dt</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-b2fd09f6-396d-48b7-8a13-8a1f4ad47a65">
+  <div id="df-25678433-076e-47d2-a783-31976566267f">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -482,10 +502,59 @@ document.write(`
       <td>0.2</td>
       <td>setosa</td>
     </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>145</th>
+      <td>6.7</td>
+      <td>3.0</td>
+      <td>5.2</td>
+      <td>2.3</td>
+      <td>virginica</td>
+    </tr>
+    <tr>
+      <th>146</th>
+      <td>6.3</td>
+      <td>2.5</td>
+      <td>5.0</td>
+      <td>1.9</td>
+      <td>virginica</td>
+    </tr>
+    <tr>
+      <th>147</th>
+      <td>6.5</td>
+      <td>3.0</td>
+      <td>5.2</td>
+      <td>2.0</td>
+      <td>virginica</td>
+    </tr>
+    <tr>
+      <th>148</th>
+      <td>6.2</td>
+      <td>3.4</td>
+      <td>5.4</td>
+      <td>2.3</td>
+      <td>virginica</td>
+    </tr>
+    <tr>
+      <th>149</th>
+      <td>5.9</td>
+      <td>3.0</td>
+      <td>5.1</td>
+      <td>1.8</td>
+      <td>virginica</td>
+    </tr>
   </tbody>
 </table>
+<p>150 rows × 5 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-b2fd09f6-396d-48b7-8a13-8a1f4ad47a65')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-25678433-076e-47d2-a783-31976566267f')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -536,12 +605,12 @@ document.write(`
 
       <script>
         const buttonEl =
-          document.querySelector('#df-b2fd09f6-396d-48b7-8a13-8a1f4ad47a65 button.colab-df-convert');
+          document.querySelector('#df-25678433-076e-47d2-a783-31976566267f button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-b2fd09f6-396d-48b7-8a13-8a1f4ad47a65');
+          const element = document.querySelector('#df-25678433-076e-47d2-a783-31976566267f');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -562,86 +631,304 @@ document.write(`
   </div>
   </div></div>
 </div>
-<p>Memisahkan data set menjadi data latih dan data uji</p>
-<p>Pada kumpulan data ini terdapat 150 baris dengan masing-masing 50 baris dari 3 kelas. Karena setiap kelas diberikan secara berurutan, kita perlu membagi dataset secara acak. Di sini, kami memiliki test_size=0.2, yang berarti bahwa 20% dari dataset akan digunakan untuk tujuan pengujian sebagai set pengujian dan 80% sisanya akan digunakan sebagai set pelatihan untuk melatih model klasifikasi Naive Bayes.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="import-library-untuk-mlp-multilayer-perceptron">
+<h1>IMPORT LIBRARY UNTUK MLP (MULTILAYER PERCEPTRON)<a class="headerlink" href="#import-library-untuk-mlp-multilayer-perceptron" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neural_network</span> <span class="kn">import</span> <span class="n">MLPClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Penskalaan fitur</p>
-<p>Dataset diperkecil ke rentang yang lebih kecil menggunakan opsi Penskalaan Fitur. Dalam hal ini, nilai X_traindan X_test diperkecil ke nilai yang lebih kecil untuk meningkatkan kecepatan program.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="membagi-data-uji-dan-data-latih">
+<h1>MEMBAGI DATA UJI DAN DATA LATIH<a class="headerlink" href="#membagi-data-uji-dan-data-latih" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
-<span class="n">sc</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
-<span class="n">X_train</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
-<span class="n">X_test</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">dt</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;species&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Latih klasifikasi naive bayes pata set pelatihan</p>
-<p>kelas GaussianNB yang digunakan dari sklearn.naive_bayesperpustakaan. Disini kita menggunakan model Gaussian, ada beberapa model lain seperti Bernoulli, Categorical dan Multinomial. Di sini, kami menetapkan kelas GaussianNB ke variabel classifierdan menyesuaikan nilai X_train dan y_train untuk tujuan pelatihan.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">GaussianNB</span>
-<span class="n">classifier</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
-<span class="n">classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_train</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">27</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="menggunakan-library-mlpclassifier-dan-mengatur-parameter-sesuai-dengan-yang-dibutuhkan">
+<h1>MENGGUNAKAN LIBRARY MLPCLASSIFIER DAN MENGATUR PARAMETER SESUAI DENGAN YANG DIBUTUHKAN<a class="headerlink" href="#menggunakan-library-mlpclassifier-dan-mengatur-parameter-sesuai-dengan-yang-dibutuhkan" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">,</span>
+                     <span class="n">solver</span><span class="o">=</span><span class="s1">&#39;sgd&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>  <span class="n">random_state</span><span class="o">=</span><span class="mi">21</span><span class="p">,</span><span class="n">tol</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="melakukan-prediksi">
+<h1>MELAKUKAN PREDIKSI<a class="headerlink" href="#melakukan-prediksi" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_pred</span><span class="o">=</span><span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><style>#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>GaussianNB()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">GaussianNB</label><div class="sk-toggleable__content"><pre>GaussianNB()</pre></div></div></div></div></div></div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 1, loss = 1.12236819
+Iteration 2, loss = 1.10973738
+Iteration 3, loss = 1.09202516
+Iteration 4, loss = 1.07050952
+Iteration 5, loss = 1.04747207
+Iteration 6, loss = 1.02464608
+Iteration 7, loss = 1.00279433
+Iteration 8, loss = 0.98202298
+Iteration 9, loss = 0.96269398
+Iteration 10, loss = 0.94516512
+Iteration 11, loss = 0.92963602
+Iteration 12, loss = 0.91645209
+Iteration 13, loss = 0.90549367
+Iteration 14, loss = 0.89699364
+Iteration 15, loss = 0.88963251
+Iteration 16, loss = 0.88230410
+Iteration 17, loss = 0.87462170
+Iteration 18, loss = 0.86639381
+Iteration 19, loss = 0.85767475
+Iteration 20, loss = 0.84862085
+Iteration 21, loss = 0.83941865
+Iteration 22, loss = 0.83017549
+Iteration 23, loss = 0.82095475
+Iteration 24, loss = 0.81181098
+Iteration 25, loss = 0.80274452
+Iteration 26, loss = 0.79381668
+Iteration 27, loss = 0.78511985
+Iteration 28, loss = 0.77648263
+Iteration 29, loss = 0.76784532
+Iteration 30, loss = 0.75915018
+Iteration 31, loss = 0.75030323
+Iteration 32, loss = 0.74139425
+Iteration 33, loss = 0.73266007
+Iteration 34, loss = 0.72414175
+Iteration 35, loss = 0.71586185
+Iteration 36, loss = 0.70785827
+Iteration 37, loss = 0.70014693
+Iteration 38, loss = 0.69279866
+Iteration 39, loss = 0.68565087
+Iteration 40, loss = 0.67867860
+Iteration 41, loss = 0.67182189
+Iteration 42, loss = 0.66509165
+Iteration 43, loss = 0.65841911
+Iteration 44, loss = 0.65189786
+Iteration 45, loss = 0.64558189
+Iteration 46, loss = 0.63944467
+Iteration 47, loss = 0.63344959
+Iteration 48, loss = 0.62755277
+Iteration 49, loss = 0.62174783
+Iteration 50, loss = 0.61600614
+Iteration 51, loss = 0.61032086
+Iteration 52, loss = 0.60470032
+Iteration 53, loss = 0.59912475
+Iteration 54, loss = 0.59358860
+Iteration 55, loss = 0.58810301
+Iteration 56, loss = 0.58266634
+Iteration 57, loss = 0.57726416
+Iteration 58, loss = 0.57193882
+Iteration 59, loss = 0.56669172
+Iteration 60, loss = 0.56149319
+Iteration 61, loss = 0.55636365
+Iteration 62, loss = 0.55136214
+Iteration 63, loss = 0.54654835
+Iteration 64, loss = 0.54183827
+Iteration 65, loss = 0.53716644
+Iteration 66, loss = 0.53256236
+Iteration 67, loss = 0.52792739
+Iteration 68, loss = 0.52341495
+Iteration 69, loss = 0.51908568
+Iteration 70, loss = 0.51492693
+Iteration 71, loss = 0.51091365
+</pre></div>
 </div>
-<p>Memprediksi hasil tes</p>
-<p>Setelah model dilatih, kami menggunakan the classifier.predict()untuk memprediksi nilai untuk Test set dan nilai yang diprediksi disimpan ke variabely_pred.</p>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 72, loss = 0.50697234
+Iteration 73, loss = 0.50308493
+Iteration 74, loss = 0.49926210
+Iteration 75, loss = 0.49549321
+Iteration 76, loss = 0.49177755
+Iteration 77, loss = 0.48810396
+Iteration 78, loss = 0.48444827
+Iteration 79, loss = 0.48081010
+Iteration 80, loss = 0.47717977
+Iteration 81, loss = 0.47356308
+Iteration 82, loss = 0.46996365
+Iteration 83, loss = 0.46637890
+Iteration 84, loss = 0.46282179
+Iteration 85, loss = 0.45925239
+Iteration 86, loss = 0.45566675
+Iteration 87, loss = 0.45210975
+Iteration 88, loss = 0.44856117
+Iteration 89, loss = 0.44494994
+Iteration 90, loss = 0.44134978
+Iteration 91, loss = 0.43780952
+Iteration 92, loss = 0.43436720
+Iteration 93, loss = 0.43106784
+Iteration 94, loss = 0.42789011
+Iteration 95, loss = 0.42480880
+Iteration 96, loss = 0.42185155
+Iteration 97, loss = 0.41897831
+Iteration 98, loss = 0.41619358
+Iteration 99, loss = 0.41352147
+Iteration 100, loss = 0.41092035
+Iteration 101, loss = 0.40837336
+Iteration 102, loss = 0.40587661
+Iteration 103, loss = 0.40342882
+Iteration 104, loss = 0.40101831
+Iteration 105, loss = 0.39864866
+Iteration 106, loss = 0.39631525
+Iteration 107, loss = 0.39401462
+Iteration 108, loss = 0.39174431
+Iteration 109, loss = 0.38950117
+Iteration 110, loss = 0.38728914
+Iteration 111, loss = 0.38510710
+Iteration 112, loss = 0.38295540
+Iteration 113, loss = 0.38083467
+Iteration 114, loss = 0.37874196
+Iteration 115, loss = 0.37668045
+Iteration 116, loss = 0.37464654
+Iteration 117, loss = 0.37264312
+Iteration 118, loss = 0.37067167
+Iteration 119, loss = 0.36872585
+Iteration 120, loss = 0.36680382
+Iteration 121, loss = 0.36490265
+Iteration 122, loss = 0.36302650
+Iteration 123, loss = 0.36117522
+Iteration 124, loss = 0.35934654
+Iteration 125, loss = 0.35754184
+Iteration 126, loss = 0.35575697
+Iteration 127, loss = 0.35399201
+Iteration 128, loss = 0.35224649
+Iteration 129, loss = 0.35052238
+Iteration 130, loss = 0.34881796
+Iteration 131, loss = 0.34713045
+Iteration 132, loss = 0.34545933
+Iteration 133, loss = 0.34380525
+Iteration 134, loss = 0.34216810
+Iteration 135, loss = 0.34054671
+Iteration 136, loss = 0.33894025
+Iteration 137, loss = 0.33734715
+Iteration 138, loss = 0.33576824
+Iteration 139, loss = 0.33420370
+Iteration 140, loss = 0.33265653
+Iteration 141, loss = 0.33112302
+Iteration 142, loss = 0.32960236
+Iteration 143, loss = 0.32809559
+Iteration 144, loss = 0.32660349
+Iteration 145, loss = 0.32512262
+Iteration 146, loss = 0.32365306
+Iteration 147, loss = 0.32219719
+Iteration 148, loss = 0.32075378
+Iteration 149, loss = 0.31932233
+Iteration 150, loss = 0.31790146
+Iteration 151, loss = 0.31649054
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 152, loss = 0.31509058
+Iteration 153, loss = 0.31370115
+Iteration 154, loss = 0.31232193
+Iteration 155, loss = 0.31095209
+Iteration 156, loss = 0.30959214
+Iteration 157, loss = 0.30824093
+Iteration 158, loss = 0.30689822
+Iteration 159, loss = 0.30556402
+Iteration 160, loss = 0.30423886
+Iteration 161, loss = 0.30292237
+Iteration 162, loss = 0.30161462
+Iteration 163, loss = 0.30031531
+Iteration 164, loss = 0.29902438
+Iteration 165, loss = 0.29774162
+Iteration 166, loss = 0.29646715
+Iteration 167, loss = 0.29520067
+Iteration 168, loss = 0.29394316
+Iteration 169, loss = 0.29269419
+Iteration 170, loss = 0.29145286
+Iteration 171, loss = 0.29021969
+Iteration 172, loss = 0.28899380
+Iteration 173, loss = 0.28777536
+Iteration 174, loss = 0.28656406
+Iteration 175, loss = 0.28536001
+Iteration 176, loss = 0.28416307
+Iteration 177, loss = 0.28297298
+Iteration 178, loss = 0.28178959
+Iteration 179, loss = 0.28061262
+Iteration 180, loss = 0.27944254
+Iteration 181, loss = 0.27827937
+Iteration 182, loss = 0.27712325
+Iteration 183, loss = 0.27597387
+Iteration 184, loss = 0.27483108
+Iteration 185, loss = 0.27369472
+Iteration 186, loss = 0.27256483
+Iteration 187, loss = 0.27144154
+Iteration 188, loss = 0.27032457
+Iteration 189, loss = 0.26921406
+Iteration 190, loss = 0.26810993
+Iteration 191, loss = 0.26701197
+Iteration 192, loss = 0.26592007
+Iteration 193, loss = 0.26483428
+Iteration 194, loss = 0.26375475
+Iteration 195, loss = 0.26268127
+Iteration 196, loss = 0.26161378
+Iteration 197, loss = 0.26055201
+Iteration 198, loss = 0.25949625
+Iteration 199, loss = 0.25844632
+Iteration 200, loss = 0.25740199
+Iteration 201, loss = 0.25636332
+Iteration 202, loss = 0.25533005
+Iteration 203, loss = 0.25430236
+Iteration 204, loss = 0.25328081
+Iteration 205, loss = 0.25226625
+Iteration 206, loss = 0.25125794
+Iteration 207, loss = 0.25025522
+Iteration 208, loss = 0.24925798
+Iteration 209, loss = 0.24826621
+Iteration 210, loss = 0.24727967
+Iteration 211, loss = 0.24629835
+Iteration 212, loss = 0.24532290
+Iteration 213, loss = 0.24435238
+Iteration 214, loss = 0.24338764
+Iteration 215, loss = 0.24242841
+Iteration 216, loss = 0.24147467
+Iteration 217, loss = 0.24052629
+Iteration 218, loss = 0.23958313
+Training loss did not improve more than tol=0.001000 for 10 consecutive epochs. Stopping.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="akurasi-ann">
+<h1>AKURASI ANN<a class="headerlink" href="#akurasi-ann" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span> 
-<span class="n">y_pred</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;versicolor&#39;, &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;, &#39;versicolor&#39;,
-       &#39;versicolor&#39;, &#39;virginica&#39;, &#39;versicolor&#39;, &#39;versicolor&#39;, &#39;virginica&#39;,
-       &#39;virginica&#39;, &#39;versicolor&#39;, &#39;versicolor&#39;, &#39;versicolor&#39;, &#39;virginica&#39;,
-       &#39;versicolor&#39;, &#39;versicolor&#39;, &#39;virginica&#39;, &#39;versicolor&#39;, &#39;virginica&#39;,
-       &#39;virginica&#39;, &#39;setosa&#39;, &#39;virginica&#39;, &#39;setosa&#39;, &#39;setosa&#39;,
-       &#39;versicolor&#39;, &#39;versicolor&#39;, &#39;virginica&#39;, &#39;versicolor&#39;,
-       &#39;versicolor&#39;], dtype=&#39;&lt;U10&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
 </pre></div>
 </div>
 </div>
 </div>
-<p>matriks confusion dan Akurasi</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
-<span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span> 
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Accuracy : &quot;</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
-<span class="n">cm</span>
-</pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy :  0.9666666666666667
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 3,  0,  0],
-       [ 0, 14,  0],
-       [ 0,  1, 12]])
-</pre></div>
-</div>
-</div>
-</div>
-<p>Dari matriks di atas, kami menyimpulkan bahwa, dari 30 set data tes, 29 diklasifikasikan dengan benar dan hanya 1 yang salah diklasifikasikan. Ini memberi kami akurasi tinggi 96,67%.</p>
-<p>Membandingkan Nilai Riil dengan Nilai Prediksi</p>
+<div class="tex2jax_ignore mathjax_ignore section" id="membandingkan-nilai-riil-dengan-nilai-prediksi">
+<h1>Membandingkan Nilai Riil dengan Nilai Prediksi<a class="headerlink" href="#membandingkan-nilai-riil-dengan-nilai-prediksi" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Real Values&#39;</span><span class="p">:</span><span class="n">y_test</span><span class="p">,</span> <span class="s1">&#39;Predicted Values&#39;</span><span class="p">:</span><span class="n">y_pred</span><span class="p">})</span>
@@ -651,7 +938,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-1dfcde9b-cd87-4cb8-a789-fb2200ee47fa">
+  <div id="df-a824e303-b078-4c42-8c0e-2438deda8a8c">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -677,109 +964,49 @@ document.write(`
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>versicolor</td>
-      <td>versicolor</td>
-    </tr>
-    <tr>
-      <th>1</th>
+      <th>116</th>
       <td>virginica</td>
       <td>virginica</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>36</th>
+      <td>setosa</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>128</th>
       <td>virginica</td>
       <td>virginica</td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>117</th>
       <td>virginica</td>
       <td>virginica</td>
     </tr>
     <tr>
-      <th>4</th>
+      <th>88</th>
       <td>versicolor</td>
       <td>versicolor</td>
     </tr>
     <tr>
-      <th>5</th>
+      <th>74</th>
       <td>versicolor</td>
       <td>versicolor</td>
     </tr>
     <tr>
-      <th>6</th>
+      <th>91</th>
+      <td>versicolor</td>
+      <td>versicolor</td>
+    </tr>
+    <tr>
+      <th>115</th>
       <td>virginica</td>
       <td>virginica</td>
     </tr>
     <tr>
-      <th>7</th>
+      <th>77</th>
       <td>versicolor</td>
       <td>versicolor</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>virginica</td>
-      <td>versicolor</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>virginica</td>
-      <td>virginica</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>virginica</td>
-      <td>virginica</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>versicolor</td>
-      <td>versicolor</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>versicolor</td>
-      <td>versicolor</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>versicolor</td>
-      <td>versicolor</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>virginica</td>
-      <td>virginica</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>versicolor</td>
-      <td>versicolor</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>versicolor</td>
-      <td>versicolor</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>virginica</td>
-      <td>virginica</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>versicolor</td>
-      <td>versicolor</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>virginica</td>
-      <td>virginica</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>virginica</td>
-      <td>virginica</td>
     </tr>
     <tr>
       <th>21</th>
@@ -787,49 +1014,109 @@ document.write(`
       <td>setosa</td>
     </tr>
     <tr>
-      <th>22</th>
+      <th>94</th>
+      <td>versicolor</td>
+      <td>versicolor</td>
+    </tr>
+    <tr>
+      <th>133</th>
       <td>virginica</td>
       <td>virginica</td>
     </tr>
     <tr>
-      <th>23</th>
+      <th>47</th>
       <td>setosa</td>
       <td>setosa</td>
     </tr>
     <tr>
-      <th>24</th>
+      <th>90</th>
+      <td>versicolor</td>
+      <td>versicolor</td>
+    </tr>
+    <tr>
+      <th>58</th>
+      <td>versicolor</td>
+      <td>versicolor</td>
+    </tr>
+    <tr>
+      <th>69</th>
+      <td>versicolor</td>
+      <td>versicolor</td>
+    </tr>
+    <tr>
+      <th>9</th>
       <td>setosa</td>
       <td>setosa</td>
     </tr>
     <tr>
-      <th>25</th>
-      <td>versicolor</td>
-      <td>versicolor</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>versicolor</td>
-      <td>versicolor</td>
-    </tr>
-    <tr>
-      <th>27</th>
+      <th>120</th>
       <td>virginica</td>
       <td>virginica</td>
     </tr>
     <tr>
-      <th>28</th>
+      <th>148</th>
+      <td>virginica</td>
+      <td>virginica</td>
+    </tr>
+    <tr>
+      <th>105</th>
+      <td>virginica</td>
+      <td>virginica</td>
+    </tr>
+    <tr>
+      <th>65</th>
       <td>versicolor</td>
       <td>versicolor</td>
     </tr>
     <tr>
-      <th>29</th>
+      <th>12</th>
+      <td>setosa</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>55</th>
       <td>versicolor</td>
       <td>versicolor</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>setosa</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>145</th>
+      <td>virginica</td>
+      <td>virginica</td>
+    </tr>
+    <tr>
+      <th>106</th>
+      <td>virginica</td>
+      <td>virginica</td>
+    </tr>
+    <tr>
+      <th>92</th>
+      <td>versicolor</td>
+      <td>versicolor</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>setosa</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>129</th>
+      <td>virginica</td>
+      <td>virginica</td>
+    </tr>
+    <tr>
+      <th>122</th>
+      <td>virginica</td>
+      <td>virginica</td>
     </tr>
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-1dfcde9b-cd87-4cb8-a789-fb2200ee47fa')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-a824e303-b078-4c42-8c0e-2438deda8a8c')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -880,12 +1167,12 @@ document.write(`
 
       <script>
         const buttonEl =
-          document.querySelector('#df-1dfcde9b-cd87-4cb8-a789-fb2200ee47fa button.colab-df-convert');
+          document.querySelector('#df-a824e303-b078-4c42-8c0e-2438deda8a8c button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-1dfcde9b-cd87-4cb8-a789-fb2200ee47fa');
+          const element = document.querySelector('#df-a824e303-b078-4c42-8c0e-2438deda8a8c');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -906,7 +1193,7 @@ document.write(`
   </div>
   </div></div>
 </div>
-<p>dalam hal ini kita telah berhasil membangun Model Klasifikasi Naive Bayes yang mampu mengklasifikasikan bunga berdasarkan 4 fitur karakteristik. Model ini dapat diimplementasikan dan diuji dengan beberapa dataset klasifikasi lain yang tersedia di internet.</p>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -935,27 +1222,37 @@ document.write(`
               
                 <footer class="bd-footer-article">
                   
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="21-048_Lu%27luatul%20maknunah_cara%20load%20data%20ke%20pbi.html"
+       href="DT.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
-        <p class="prev-next-subtitle">Previous</p>
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Decision Tree</p>
       </div>
     </a>
     <a class="right-next"
-       href="21_048_UTS_PENDATAipynb.html"
+       href="PCA.html"
        title="next page">
       <div class="prev-next-info">
-        <p class="prev-next-subtitle">Next</p>
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">PCA</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
+            
+            
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
@@ -964,7 +1261,16 @@ document.write(`
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
-    <ul class="simple visible nav section-nav flex-column">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">ARTIFICIAL NEURAL NETWORK BACKPROPAGATION</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library-yang-akan-digunakan">Import LIBRARY yang akan digunakan</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#code-dibawah-ini-digunakan-untuk-mengimpor-dan-melihat-data-menggunakan-library-pandas">Code dibawah ini digunakan untuk mengimpor dan melihat data menggunakan library pandas</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library-untuk-mlp-multilayer-perceptron">IMPORT LIBRARY UNTUK MLP (MULTILAYER PERCEPTRON)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membagi-data-uji-dan-data-latih">MEMBAGI DATA UJI DAN DATA LATIH</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menggunakan-library-mlpclassifier-dan-mengatur-parameter-sesuai-dengan-yang-dibutuhkan">MENGGUNAKAN LIBRARY MLPCLASSIFIER DAN MENGATUR PARAMETER SESUAI DENGAN YANG DIBUTUHKAN</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#melakukan-prediksi">MELAKUKAN PREDIKSI</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#akurasi-ann">AKURASI ANN</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membandingkan-nilai-riil-dengan-nilai-prediksi">Membandingkan Nilai Riil dengan Nilai Prediksi</a></li>
 </ul>
 
   </nav></div>
@@ -989,7 +1295,7 @@ Lu'luatul Maknunah
     
   <p class="copyright">
     
-      Pendata 2023
+      Pendata
       <br/>
     
   </p>
