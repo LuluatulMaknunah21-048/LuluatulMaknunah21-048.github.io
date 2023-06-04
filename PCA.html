@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MENGGUNAKAN NAIVE BAYES &#8212; My sample book</title>
+    <title>PRINCIPAL COMPONENT ANALYSIS &#8212; My sample book</title>
   
   
   
@@ -145,7 +145,7 @@ const thebe_selector_output = ".output, .cell_output"
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-   <div class="bd-toc-item navbar-nav active">
+     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -155,16 +155,15 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 "><a class="reference internal" href="21-048_Lu%27luatul%20maknunah_cara%20load%20data%20ke%20pbi.html">Belajar Load Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21-048_Lu%27luatul%20maknunah_cara%20load%20data%20ke%20pbi.html">Belajar Load Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="naive.html">Iris Dataset Untuk Naive Bayes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="21_048_UTS_PENDATAipynb.html">UTS</a></li>
-<li class="toctree-l1"><a class="current reference internal" href="naivebayes.html">NAIVE BAYES</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naivebayes.html">NAIVE BAYES</a></li>
 <li class="toctree-l1"><a class="reference internal" href="KNN.html">KNN</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DT.html">DECISION TREE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ANN BP.html">ANN</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="PCA.html"><strong>PCA dan Kesimpulan</strong></a></li>
+<li class="toctree-l1 current active"><a class=" current reference internal" href="PCA.html"><strong>PCA dan Kesimpulan</strong></a></li>
 </ul>
-
     </div>
 </nav></div>
     </div>
@@ -217,7 +216,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://colab.research.google.com/github/LuluatulMaknunah21-048/Pendata/blob/main/PCA.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/eLuluatulMaknunah21-048/Pendata/blob/main/PCA.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -377,7 +376,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>MENGGUNAKAN NAIVE BAYES</h1>
+    <h1>PRINCIPAL COMPONENT ANALYSIS</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -387,7 +386,22 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">MENGGUNAKAN NAIVE BAYES</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">PRINCIPAL COMPONENT ANALYSIS</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library">IMPORT LIBRARY</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membaca-data-dengan-pandas">MEMBACA DATA DENGAN PANDAS</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#gambar-histogram-dari-4-fitur-data-iris">GAMBAR HISTOGRAM DARI 4 FITUR DATA IRIS</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-dengan-standard-scaler">PREPROCESSING DENGAN STANDARD SCALER</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-serta-menampilkan-matrix-covarian-dari-data-yang-telah-di-normalisasi">MENGHITUNG SERTA MENAMPILKAN MATRIX COVARIAN DARI DATA YANG TELAH DI NORMALISASI</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-eigenvector-serta-eigenvalue-dari-matriks-covarian">MENGHITUNG EIGENVECTOR SERTA EIGENVALUE DARI MATRIKS COVARIAN</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-matriks-korelasi-eigen-vector-dan-value">MENGHITUNG MATRIKS KORELASI, EIGEN VECTOR DAN VALUE</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#verifikasi-eigenvector-dan-mencetak-pesan-jika-valid">Verifikasi eigenvector dan mencetak pesan jika valid</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-persentase-variasi-dan-kumulatif-menggunakan-eigenvalue-terurut">Menghitung persentase variasi dan kumulatif menggunakan eigenvalue terurut</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membuat-gambar-persentase-variasi-dan-variasi-kumulatif">Membuat gambar persentase variasi dan variasi kumulatif</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menggabungkan-2-vektor-eigen-terpilih-menjadi-sebuah-matriks">Menggabungkan 2 vektor eigen terpilih menjadi sebuah matriks</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mengubah-data-x-std-menjadi-matriks-y-sklearn-berdimensi-dua">Mengubah data ‘X_std’ menjadi matriks ‘Y_sklearn’ berdimensi dua</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membuat-scatter-plot-dua-dimensi-dengan-warna-berbeda-untuk-setiap-label">Membuat scatter plot dua dimensi dengan warna berbeda untuk setiap label</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-pca">HASIL PCA</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menggunakan-naive-bayes">MENGGUNAKAN NAIVE BAYES</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menggunakan-knn">MENGGUNAKAN KNN</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menggunakan-decision-tree">MENGGUNAKAN DECISION TREE</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menggunakan-ann">MENGGUNAKAN ANN</a></li>
@@ -404,7 +418,13 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="cell docutils container">
+  <div class="section" id="principal-component-analysis">
+<h1>PRINCIPAL COMPONENT ANALYSIS<a class="headerlink" href="#principal-component-analysis" title="Permalink to this heading">#</a></h1>
+<p>PCA adalah metode yang digunakan untuk menyederhanakan suatu data, dengan cara merubah data secara linier sehingga terbentuk sistem koordinat baru dengan varian maksimal. Metode PCA bertujuan untuk menyederhanakan variabel yang diamati dengan cara mereduksi dimensinya. Hal ini dilakukan dengan cara menghilangkan korelasi diantara variabel bebas melalui transformasi variabel bebas asal ke variabel baru yang tidak berkorelasi sama sekali.</p>
+</div>
+<div class="section" id="import-library">
+<h1>IMPORT LIBRARY<a class="headerlink" href="#import-library" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -414,6 +434,9 @@ document.write(`
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="membaca-data-dengan-pandas">
+<h1>MEMBACA DATA DENGAN PANDAS<a class="headerlink" href="#membaca-data-dengan-pandas" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/LuluatulMaknunah21-048/Pendata/main/IrisDataset.csv&#39;</span><span class="p">)</span>
@@ -423,7 +446,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-1ba8010b-b6d4-47ab-9040-5769825786e6">
+  <div id="df-367b72ab-36aa-439e-9a23-5e8be0ec6932">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -494,7 +517,7 @@ document.write(`
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-1ba8010b-b6d4-47ab-9040-5769825786e6')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-367b72ab-36aa-439e-9a23-5e8be0ec6932')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -545,12 +568,12 @@ document.write(`
 
       <script>
         const buttonEl =
-          document.querySelector('#df-1ba8010b-b6d4-47ab-9040-5769825786e6 button.colab-df-convert');
+          document.querySelector('#df-367b72ab-36aa-439e-9a23-5e8be0ec6932 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-1ba8010b-b6d4-47ab-9040-5769825786e6');
+          const element = document.querySelector('#df-367b72ab-36aa-439e-9a23-5e8be0ec6932');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -608,6 +631,9 @@ Name: species, dtype: int64
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="gambar-histogram-dari-4-fitur-data-iris">
+<h1>GAMBAR HISTOGRAM DARI 4 FITUR DATA IRIS<a class="headerlink" href="#gambar-histogram-dari-4-fitur-data-iris" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">label_dict</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;setosa&#39;</span><span class="p">,</span>
@@ -636,6 +662,10 @@ Name: species, dtype: int64
 <img alt="_images/6eb9293cf189462083a501602604f9d40f17e6c08871f2f8065e560709233488.png" src="_images/6eb9293cf189462083a501602604f9d40f17e6c08871f2f8065e560709233488.png" />
 </div>
 </div>
+</div>
+<div class="section" id="preprocessing-dengan-standard-scaler">
+<h1>PREPROCESSING DENGAN STANDARD SCALER<a class="headerlink" href="#preprocessing-dengan-standard-scaler" title="Permalink to this heading">#</a></h1>
+<p>normalisasi data menggunakan StandardScaler dan kemudian menghitung matriks kovarian dari data yang telah dinormalisasi. Hasilnya dicetak sebagai “Covariance Matrix” diikuti oleh nilai matriks Covarian.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
@@ -644,6 +674,9 @@ Name: species, dtype: int64
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="menghitung-serta-menampilkan-matrix-covarian-dari-data-yang-telah-di-normalisasi">
+<h1>MENGHITUNG SERTA MENAMPILKAN MATRIX COVARIAN DARI DATA YANG TELAH DI NORMALISASI<a class="headerlink" href="#menghitung-serta-menampilkan-matrix-covarian-dari-data-yang-telah-di-normalisasi" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_vec</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X_std</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -678,6 +711,9 @@ Name: species, dtype: int64
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="menghitung-eigenvector-serta-eigenvalue-dari-matriks-covarian">
+<h1>MENGHITUNG EIGENVECTOR SERTA EIGENVALUE DARI MATRIKS COVARIAN<a class="headerlink" href="#menghitung-eigenvector-serta-eigenvalue-dari-matriks-covarian" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cov_mat</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="n">X_std</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
@@ -701,6 +737,9 @@ Eigenvelues
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="menghitung-matriks-korelasi-eigen-vector-dan-value">
+<h1>MENGHITUNG MATRIKS KORELASI, EIGEN VECTOR DAN VALUE<a class="headerlink" href="#menghitung-matriks-korelasi-eigen-vector-dan-value" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corr_mat1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">X_std</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
@@ -762,6 +801,10 @@ Eigenvelues
 </div>
 </div>
 </div>
+<p>SVD digunakan pada transpose matriks X_std dan hasilnya disimpan dalam variabel u.</p>
+</div>
+<div class="section" id="verifikasi-eigenvector-dan-mencetak-pesan-jika-valid">
+<h1>Verifikasi eigenvector dan mencetak pesan jika valid<a class="headerlink" href="#verifikasi-eigenvector-dan-mencetak-pesan-jika-valid" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">ev</span> <span class="ow">in</span> <span class="n">eig_vecs</span><span class="o">.</span><span class="n">T</span><span class="p">:</span>
@@ -801,6 +844,9 @@ Eigenvelues
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="menghitung-persentase-variasi-dan-kumulatif-menggunakan-eigenvalue-terurut">
+<h1>Menghitung persentase variasi dan kumulatif menggunakan eigenvalue terurut<a class="headerlink" href="#menghitung-persentase-variasi-dan-kumulatif-menggunakan-eigenvalue-terurut" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tot</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">eig_vals</span><span class="p">)</span>
@@ -810,6 +856,9 @@ Eigenvelues
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="membuat-gambar-persentase-variasi-dan-variasi-kumulatif">
+<h1>Membuat gambar persentase variasi dan variasi kumulatif<a class="headerlink" href="#membuat-gambar-persentase-variasi-dan-variasi-kumulatif" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">context</span><span class="p">(</span><span class="s1">&#39;seaborn-whitegrid&#39;</span><span class="p">):</span>
@@ -849,6 +898,9 @@ Eigenvelues
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="menggabungkan-2-vektor-eigen-terpilih-menjadi-sebuah-matriks">
+<h1>Menggabungkan 2 vektor eigen terpilih menjadi sebuah matriks<a class="headerlink" href="#menggabungkan-2-vektor-eigen-terpilih-menjadi-sebuah-matriks" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Y</span> <span class="o">=</span> <span class="n">X_std</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">matrix_w</span><span class="p">)</span>
@@ -856,28 +908,9 @@ Eigenvelues
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">context</span><span class="p">(</span><span class="s1">&#39;seaborn-whitegrid&#39;</span><span class="p">):</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-    <span class="k">for</span> <span class="n">lab</span><span class="p">,</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">((</span><span class="s1">&#39;setosa&#39;</span><span class="p">,</span> <span class="s1">&#39;versicolor&#39;</span><span class="p">,</span> <span class="s1">&#39;virginica&#39;</span><span class="p">),</span>
-                        <span class="p">(</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">)):</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Y</span><span class="p">[</span><span class="n">y</span><span class="o">==</span><span class="n">lab</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-                    <span class="n">Y</span><span class="p">[</span><span class="n">y</span><span class="o">==</span><span class="n">lab</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-                    <span class="n">label</span><span class="o">=</span><span class="n">lab</span><span class="p">,</span>
-                    <span class="n">c</span><span class="o">=</span><span class="n">col</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Principal Component 1&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Principal Component 2&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower center&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/cb2a57093ff5eeb255a123df3971973b18b11422773920eda895f3209661d18d.png" src="_images/cb2a57093ff5eeb255a123df3971973b18b11422773920eda895f3209661d18d.png" />
-</div>
-</div>
+<div class="section" id="mengubah-data-x-std-menjadi-matriks-y-sklearn-berdimensi-dua">
+<h1>Mengubah data ‘X_std’ menjadi matriks ‘Y_sklearn’ berdimensi dua<a class="headerlink" href="#mengubah-data-x-std-menjadi-matriks-y-sklearn-berdimensi-dua" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span> <span class="k">as</span> <span class="n">sklearnPCA</span>
@@ -887,6 +920,9 @@ Eigenvelues
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="membuat-scatter-plot-dua-dimensi-dengan-warna-berbeda-untuk-setiap-label">
+<h1>Membuat scatter plot dua dimensi dengan warna berbeda untuk setiap label<a class="headerlink" href="#membuat-scatter-plot-dua-dimensi-dengan-warna-berbeda-untuk-setiap-label" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">context</span><span class="p">(</span><span class="s1">&#39;seaborn-whitegrid&#39;</span><span class="p">):</span>
@@ -909,6 +945,9 @@ Eigenvelues
 <img alt="_images/264b1233746625f8ac36c2227d4c58aed6af883582673ca8e391428f69555a5b.png" src="_images/264b1233746625f8ac36c2227d4c58aed6af883582673ca8e391428f69555a5b.png" />
 </div>
 </div>
+</div>
+<div class="section" id="hasil-pca">
+<h1>HASIL PCA<a class="headerlink" href="#hasil-pca" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">Y_sklearn</span><span class="p">)</span>
@@ -919,7 +958,7 @@ Eigenvelues
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-e1638350-a62e-48f4-9e45-f80139ff60a3">
+  <div id="df-a73d5f65-f6a6-4880-9619-2084b58c089c">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -1003,7 +1042,7 @@ Eigenvelues
 </table>
 <p>150 rows × 2 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-e1638350-a62e-48f4-9e45-f80139ff60a3')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-a73d5f65-f6a6-4880-9619-2084b58c089c')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -1054,12 +1093,12 @@ Eigenvelues
 
       <script>
         const buttonEl =
-          document.querySelector('#df-e1638350-a62e-48f4-9e45-f80139ff60a3 button.colab-df-convert');
+          document.querySelector('#df-a73d5f65-f6a6-4880-9619-2084b58c089c button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-e1638350-a62e-48f4-9e45-f80139ff60a3');
+          const element = document.querySelector('#df-a73d5f65-f6a6-4880-9619-2084b58c089c');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -1089,7 +1128,7 @@ Eigenvelues
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-86b1ea32-abf4-4efd-925f-e0908b84acd3">
+  <div id="df-ab95a549-c579-488f-8530-025fa1c0860d">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -1185,7 +1224,7 @@ Eigenvelues
 </table>
 <p>150 rows × 3 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-86b1ea32-abf4-4efd-925f-e0908b84acd3')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-ab95a549-c579-488f-8530-025fa1c0860d')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -1236,12 +1275,12 @@ Eigenvelues
 
       <script>
         const buttonEl =
-          document.querySelector('#df-86b1ea32-abf4-4efd-925f-e0908b84acd3 button.colab-df-convert');
+          document.querySelector('#df-ab95a549-c579-488f-8530-025fa1c0860d button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-86b1ea32-abf4-4efd-925f-e0908b84acd3');
+          const element = document.querySelector('#df-ab95a549-c579-488f-8530-025fa1c0860d');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -1271,7 +1310,7 @@ Eigenvelues
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-3500faca-9b60-4fe3-9570-bf5c830cb758">
+  <div id="df-f77f545f-b5d1-4fd3-b52d-90c44fba2d87">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -1367,7 +1406,7 @@ Eigenvelues
 </table>
 <p>150 rows × 3 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-3500faca-9b60-4fe3-9570-bf5c830cb758')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-f77f545f-b5d1-4fd3-b52d-90c44fba2d87')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -1418,12 +1457,12 @@ Eigenvelues
 
       <script>
         const buttonEl =
-          document.querySelector('#df-3500faca-9b60-4fe3-9570-bf5c830cb758 button.colab-df-convert');
+          document.querySelector('#df-f77f545f-b5d1-4fd3-b52d-90c44fba2d87 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-3500faca-9b60-4fe3-9570-bf5c830cb758');
+          const element = document.querySelector('#df-f77f545f-b5d1-4fd3-b52d-90c44fba2d87');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -1455,7 +1494,7 @@ Eigenvelues
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-f051b08e-f0f1-415f-829f-38da7a89190e">
+  <div id="df-0635b673-6636-428d-b70a-90866d280ba7">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -1514,7 +1553,7 @@ Eigenvelues
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-f051b08e-f0f1-415f-829f-38da7a89190e')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-0635b673-6636-428d-b70a-90866d280ba7')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -1565,12 +1604,12 @@ Eigenvelues
 
       <script>
         const buttonEl =
-          document.querySelector('#df-f051b08e-f0f1-415f-829f-38da7a89190e button.colab-df-convert');
+          document.querySelector('#df-0635b673-6636-428d-b70a-90866d280ba7 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-f051b08e-f0f1-415f-829f-38da7a89190e');
+          const element = document.querySelector('#df-0635b673-6636-428d-b70a-90866d280ba7');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -1590,6 +1629,7 @@ Eigenvelues
     </div>
   </div>
   </div></div>
+</div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="menggunakan-naive-bayes">
 <h1>MENGGUNAKAN NAIVE BAYES<a class="headerlink" href="#menggunakan-naive-bayes" title="Permalink to this heading">#</a></h1>
@@ -1670,7 +1710,7 @@ Eigenvelues
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-b457b92f-8e37-4741-8a6e-3de776d7c1fb">
+  <div id="df-f563c2da-1db6-4cf6-933e-c8d8e2333803">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -1848,7 +1888,7 @@ Eigenvelues
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-b457b92f-8e37-4741-8a6e-3de776d7c1fb')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-f563c2da-1db6-4cf6-933e-c8d8e2333803')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -1899,12 +1939,12 @@ Eigenvelues
 
       <script>
         const buttonEl =
-          document.querySelector('#df-b457b92f-8e37-4741-8a6e-3de776d7c1fb button.colab-df-convert');
+          document.querySelector('#df-f563c2da-1db6-4cf6-933e-c8d8e2333803 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-b457b92f-8e37-4741-8a6e-3de776d7c1fb');
+          const element = document.querySelector('#df-f563c2da-1db6-4cf6-933e-c8d8e2333803');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -1976,7 +2016,7 @@ Eigenvelues
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-dddb6423-bc24-4981-9e3d-280f57f9394c">
+  <div id="df-6d166c1e-cf84-4a2a-b8b2-299d159e9f07">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -2154,7 +2194,7 @@ Eigenvelues
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-dddb6423-bc24-4981-9e3d-280f57f9394c')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-6d166c1e-cf84-4a2a-b8b2-299d159e9f07')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -2205,12 +2245,12 @@ Eigenvelues
 
       <script>
         const buttonEl =
-          document.querySelector('#df-dddb6423-bc24-4981-9e3d-280f57f9394c button.colab-df-convert');
+          document.querySelector('#df-6d166c1e-cf84-4a2a-b8b2-299d159e9f07 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-dddb6423-bc24-4981-9e3d-280f57f9394c');
+          const element = document.querySelector('#df-6d166c1e-cf84-4a2a-b8b2-299d159e9f07');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -2243,7 +2283,7 @@ Eigenvelues
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-e7aed1b7-14e3-4d22-9cb8-851b00db07ac">
+  <div id="df-be1d76d6-2ba9-42ee-9ccc-03b43edc0bf5">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -2339,7 +2379,7 @@ Eigenvelues
 </table>
 <p>150 rows × 3 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-e7aed1b7-14e3-4d22-9cb8-851b00db07ac')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-be1d76d6-2ba9-42ee-9ccc-03b43edc0bf5')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -2390,12 +2430,12 @@ Eigenvelues
 
       <script>
         const buttonEl =
-          document.querySelector('#df-e7aed1b7-14e3-4d22-9cb8-851b00db07ac button.colab-df-convert');
+          document.querySelector('#df-be1d76d6-2ba9-42ee-9ccc-03b43edc0bf5 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-e7aed1b7-14e3-4d22-9cb8-851b00db07ac');
+          const element = document.querySelector('#df-be1d76d6-2ba9-42ee-9ccc-03b43edc0bf5');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -2457,7 +2497,7 @@ dtype: int64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.33</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">21</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">21</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2469,7 +2509,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((100, 2), (50, 2))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((120, 2), (30, 2))
 </pre></div>
 </div>
 </div>
@@ -2490,48 +2530,13 @@ dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>category_encoders
-<span class="kn">import</span> <span class="nn">category_encoders</span> <span class="k">as</span> <span class="nn">ce</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
-Requirement already satisfied: category_encoders in /usr/local/lib/python3.10/dist-packages (2.6.1)
-Requirement already satisfied: numpy&gt;=1.14.0 in /usr/local/lib/python3.10/dist-packages (from category_encoders) (1.22.4)
-Requirement already satisfied: scikit-learn&gt;=0.20.0 in /usr/local/lib/python3.10/dist-packages (from category_encoders) (1.2.2)
-Requirement already satisfied: scipy&gt;=1.0.0 in /usr/local/lib/python3.10/dist-packages (from category_encoders) (1.10.1)
-Requirement already satisfied: statsmodels&gt;=0.9.0 in /usr/local/lib/python3.10/dist-packages (from category_encoders) (0.13.5)
-Requirement already satisfied: pandas&gt;=1.0.5 in /usr/local/lib/python3.10/dist-packages (from category_encoders) (1.5.3)
-Requirement already satisfied: patsy&gt;=0.5.1 in /usr/local/lib/python3.10/dist-packages (from category_encoders) (0.5.3)
-Requirement already satisfied: python-dateutil&gt;=2.8.1 in /usr/local/lib/python3.10/dist-packages (from pandas&gt;=1.0.5-&gt;category_encoders) (2.8.2)
-Requirement already satisfied: pytz&gt;=2020.1 in /usr/local/lib/python3.10/dist-packages (from pandas&gt;=1.0.5-&gt;category_encoders) (2022.7.1)
-Requirement already satisfied: six in /usr/local/lib/python3.10/dist-packages (from patsy&gt;=0.5.1-&gt;category_encoders) (1.16.0)
-Requirement already satisfied: joblib&gt;=1.1.1 in /usr/local/lib/python3.10/dist-packages (from scikit-learn&gt;=0.20.0-&gt;category_encoders) (1.2.0)
-Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /usr/local/lib/python3.10/dist-packages (from scikit-learn&gt;=0.20.0-&gt;category_encoders) (3.1.0)
-Requirement already satisfied: packaging&gt;=21.3 in /usr/local/lib/python3.10/dist-packages (from statsmodels&gt;=0.9.0-&gt;category_encoders) (23.1)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">encoder</span> <span class="o">=</span> <span class="n">ce</span><span class="o">.</span><span class="n">OrdinalEncoder</span><span class="p">(</span><span class="n">cols</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;X&quot;</span><span class="p">,</span><span class="s2">&quot;Y&quot;</span><span class="p">])</span>
-<span class="n">X_train</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
-<span class="n">X_test</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-055abdf9-383e-4dc1-a93a-73cfa98564a1">
+  <div id="df-cba83ead-79a6-4adf-88f6-549aa2a78385">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -2557,34 +2562,34 @@ Requirement already satisfied: packaging&gt;=21.3 in /usr/local/lib/python3.10/d
   </thead>
   <tbody>
     <tr>
-      <th>52</th>
-      <td>1</td>
-      <td>1</td>
+      <th>41</th>
+      <td>-1.871707</td>
+      <td>-2.327692</td>
     </tr>
     <tr>
-      <th>49</th>
-      <td>2</td>
-      <td>2</td>
+      <th>131</th>
+      <td>2.316082</td>
+      <td>2.626184</td>
     </tr>
     <tr>
-      <th>65</th>
-      <td>3</td>
-      <td>3</td>
+      <th>70</th>
+      <td>0.738256</td>
+      <td>0.402470</td>
     </tr>
     <tr>
-      <th>118</th>
-      <td>4</td>
-      <td>4</td>
+      <th>46</th>
+      <td>-2.381258</td>
+      <td>1.150633</td>
     </tr>
     <tr>
-      <th>55</th>
-      <td>5</td>
-      <td>5</td>
+      <th>126</th>
+      <td>1.171905</td>
+      <td>-0.318897</td>
     </tr>
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-055abdf9-383e-4dc1-a93a-73cfa98564a1')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-cba83ead-79a6-4adf-88f6-549aa2a78385')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -2635,12 +2640,12 @@ Requirement already satisfied: packaging&gt;=21.3 in /usr/local/lib/python3.10/d
 
       <script>
         const buttonEl =
-          document.querySelector('#df-055abdf9-383e-4dc1-a93a-73cfa98564a1 button.colab-df-convert');
+          document.querySelector('#df-cba83ead-79a6-4adf-88f6-549aa2a78385 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-055abdf9-383e-4dc1-a93a-73cfa98564a1');
+          const element = document.querySelector('#df-cba83ead-79a6-4adf-88f6-549aa2a78385');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -2669,7 +2674,7 @@ Requirement already satisfied: packaging&gt;=21.3 in /usr/local/lib/python3.10/d
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-b9ea5d7d-3ec5-4567-bab6-b9f728d5e8b8">
+  <div id="df-a4672da3-69dd-48ed-85ff-594b13b8a1f4">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -2696,33 +2701,33 @@ Requirement already satisfied: packaging&gt;=21.3 in /usr/local/lib/python3.10/d
   <tbody>
     <tr>
       <th>92</th>
-      <td>-1.0</td>
-      <td>-1.0</td>
+      <td>0.330005</td>
+      <td>-0.988901</td>
     </tr>
     <tr>
       <th>44</th>
-      <td>-1.0</td>
-      <td>-1.0</td>
+      <td>-2.133373</td>
+      <td>1.171432</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>-1.0</td>
-      <td>-1.0</td>
+      <td>-2.233842</td>
+      <td>0.247614</td>
     </tr>
     <tr>
       <th>21</th>
-      <td>-1.0</td>
-      <td>-1.0</td>
+      <td>-2.204645</td>
+      <td>0.952457</td>
     </tr>
     <tr>
       <th>95</th>
-      <td>-1.0</td>
-      <td>-1.0</td>
+      <td>0.089053</td>
+      <td>-0.174909</td>
     </tr>
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-b9ea5d7d-3ec5-4567-bab6-b9f728d5e8b8')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-a4672da3-69dd-48ed-85ff-594b13b8a1f4')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -2773,12 +2778,12 @@ Requirement already satisfied: packaging&gt;=21.3 in /usr/local/lib/python3.10/d
 
       <script>
         const buttonEl =
-          document.querySelector('#df-b9ea5d7d-3ec5-4567-bab6-b9f728d5e8b8 button.colab-df-convert');
+          document.querySelector('#df-a4672da3-69dd-48ed-85ff-594b13b8a1f4 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-b9ea5d7d-3ec5-4567-bab6-b9f728d5e8b8');
+          const element = document.querySelector('#df-a4672da3-69dd-48ed-85ff-594b13b8a1f4');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -2831,7 +2836,7 @@ Requirement already satisfied: packaging&gt;=21.3 in /usr/local/lib/python3.10/d
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model accuracy score with criterion gini index: 0.36
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model accuracy score with criterion gini index: 0.90
 </pre></div>
 </div>
 </div>
@@ -2844,25 +2849,29 @@ Requirement already satisfied: packaging&gt;=21.3 in /usr/local/lib/python3.10/d
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;setosa&#39;, &#39;setosa&#39;, &#39;versicolor&#39;, &#39;versicolor&#39;, &#39;versicolor&#39;,
-       &#39;versicolor&#39;, &#39;setosa&#39;, &#39;setosa&#39;, &#39;setosa&#39;, &#39;setosa&#39;, &#39;setosa&#39;,
-       &#39;setosa&#39;, &#39;setosa&#39;, &#39;setosa&#39;, &#39;setosa&#39;, &#39;setosa&#39;, &#39;setosa&#39;,
-       &#39;setosa&#39;, &#39;setosa&#39;, &#39;setosa&#39;, &#39;setosa&#39;, &#39;setosa&#39;, &#39;setosa&#39;,
-       &#39;setosa&#39;, &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;,
-       &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;,
-       &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;,
-       &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;,
-       &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;,
-       &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;,
-       &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;,
-       &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;,
-       &#39;setosa&#39;, &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;,
-       &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;,
-       &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;,
-       &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;,
-       &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;,
-       &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;,
-       &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;, &#39;setosa&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;setosa&#39;, &#39;virginica&#39;, &#39;versicolor&#39;, &#39;setosa&#39;, &#39;virginica&#39;,
+       &#39;versicolor&#39;, &#39;versicolor&#39;, &#39;virginica&#39;, &#39;setosa&#39;, &#39;virginica&#39;,
+       &#39;versicolor&#39;, &#39;virginica&#39;, &#39;virginica&#39;, &#39;versicolor&#39;, &#39;virginica&#39;,
+       &#39;setosa&#39;, &#39;setosa&#39;, &#39;setosa&#39;, &#39;virginica&#39;, &#39;setosa&#39;, &#39;virginica&#39;,
+       &#39;setosa&#39;, &#39;versicolor&#39;, &#39;virginica&#39;, &#39;versicolor&#39;, &#39;versicolor&#39;,
+       &#39;setosa&#39;, &#39;setosa&#39;, &#39;virginica&#39;, &#39;setosa&#39;, &#39;setosa&#39;, &#39;setosa&#39;,
+       &#39;setosa&#39;, &#39;setosa&#39;, &#39;versicolor&#39;, &#39;versicolor&#39;, &#39;setosa&#39;,
+       &#39;virginica&#39;, &#39;versicolor&#39;, &#39;setosa&#39;, &#39;setosa&#39;, &#39;versicolor&#39;,
+       &#39;versicolor&#39;, &#39;setosa&#39;, &#39;virginica&#39;, &#39;versicolor&#39;, &#39;virginica&#39;,
+       &#39;setosa&#39;, &#39;virginica&#39;, &#39;setosa&#39;, &#39;setosa&#39;, &#39;versicolor&#39;,
+       &#39;virginica&#39;, &#39;versicolor&#39;, &#39;versicolor&#39;, &#39;setosa&#39;, &#39;virginica&#39;,
+       &#39;versicolor&#39;, &#39;setosa&#39;, &#39;versicolor&#39;, &#39;versicolor&#39;, &#39;versicolor&#39;,
+       &#39;virginica&#39;, &#39;versicolor&#39;, &#39;virginica&#39;, &#39;versicolor&#39;, &#39;virginica&#39;,
+       &#39;virginica&#39;, &#39;setosa&#39;, &#39;setosa&#39;, &#39;virginica&#39;, &#39;virginica&#39;,
+       &#39;setosa&#39;, &#39;virginica&#39;, &#39;virginica&#39;, &#39;versicolor&#39;, &#39;versicolor&#39;,
+       &#39;virginica&#39;, &#39;versicolor&#39;, &#39;virginica&#39;, &#39;setosa&#39;, &#39;virginica&#39;,
+       &#39;virginica&#39;, &#39;setosa&#39;, &#39;setosa&#39;, &#39;versicolor&#39;, &#39;virginica&#39;,
+       &#39;setosa&#39;, &#39;setosa&#39;, &#39;versicolor&#39;, &#39;virginica&#39;, &#39;setosa&#39;, &#39;setosa&#39;,
+       &#39;versicolor&#39;, &#39;virginica&#39;, &#39;virginica&#39;, &#39;setosa&#39;, &#39;virginica&#39;,
+       &#39;versicolor&#39;, &#39;setosa&#39;, &#39;versicolor&#39;, &#39;virginica&#39;, &#39;versicolor&#39;,
+       &#39;setosa&#39;, &#39;virginica&#39;, &#39;virginica&#39;, &#39;versicolor&#39;, &#39;versicolor&#39;,
+       &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;, &#39;versicolor&#39;, &#39;virginica&#39;,
+       &#39;virginica&#39;, &#39;versicolor&#39;, &#39;virginica&#39;, &#39;virginica&#39;, &#39;setosa&#39;,
        &#39;setosa&#39;, &#39;versicolor&#39;], dtype=object)
 </pre></div>
 </div>
@@ -2875,7 +2884,7 @@ Requirement already satisfied: packaging&gt;=21.3 in /usr/local/lib/python3.10/d
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Training-set accuracy score: 0.50
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Training-set accuracy score: 0.94
 </pre></div>
 </div>
 </div>
@@ -2888,8 +2897,8 @@ Requirement already satisfied: packaging&gt;=21.3 in /usr/local/lib/python3.10/d
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Training set score: 0.50
-Test set score: 0.36
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Training set score: 0.94
+Test set score: 0.90
 </pre></div>
 </div>
 </div>
@@ -2906,7 +2915,7 @@ Test set score: 0.36
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ea0bafafd614be8bcfb93e979b44f315e539ab6e92cfef326c3bee81efb4ee85.png" src="_images/ea0bafafd614be8bcfb93e979b44f315e539ab6e92cfef326c3bee81efb4ee85.png" />
+<img alt="_images/93f842a0966055d6f5a2b81d94467e48b7530ec1e04fad001156b3005bae799d.png" src="_images/93f842a0966055d6f5a2b81d94467e48b7530ec1e04fad001156b3005bae799d.png" />
 </div>
 </div>
 </div>
@@ -2974,7 +2983,9 @@ Iteration 18, loss = 1.04077332
 Iteration 19, loss = 1.03429769
 Iteration 20, loss = 1.02781424
 Iteration 21, loss = 1.02132868
-Iteration 22, loss = 1.01485323
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 22, loss = 1.01485323
 Iteration 23, loss = 1.00839348
 Iteration 24, loss = 1.00196105
 Iteration 25, loss = 0.99554671
@@ -3002,7 +3013,9 @@ Iteration 46, loss = 0.87118266
 Iteration 47, loss = 0.86578926
 Iteration 48, loss = 0.86044345
 Iteration 49, loss = 0.85513557
-Iteration 50, loss = 0.84984470
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 50, loss = 0.84984470
 Iteration 51, loss = 0.84457278
 Iteration 52, loss = 0.83931996
 Iteration 53, loss = 0.83409008
@@ -3029,13 +3042,13 @@ Iteration 73, loss = 0.73333737
 Iteration 74, loss = 0.72853337
 Iteration 75, loss = 0.72374845
 Iteration 76, loss = 0.71898570
-Iteration 77, loss = 0.71425485
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 77, loss = 0.71425485
 Iteration 78, loss = 0.70955414
 Iteration 79, loss = 0.70488102
 Iteration 80, loss = 0.70023274
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 81, loss = 0.69560812
+Iteration 81, loss = 0.69560812
 Iteration 82, loss = 0.69100793
 Iteration 83, loss = 0.68643515
 Iteration 84, loss = 0.68188778
@@ -3062,7 +3075,9 @@ Iteration 104, loss = 0.59773223
 Iteration 105, loss = 0.59392923
 Iteration 106, loss = 0.59016410
 Iteration 107, loss = 0.58644078
-Iteration 108, loss = 0.58275802
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 108, loss = 0.58275802
 Iteration 109, loss = 0.57911636
 Iteration 110, loss = 0.57551494
 Iteration 111, loss = 0.57195433
@@ -3088,7 +3103,9 @@ Iteration 130, loss = 0.51196310
 Iteration 131, loss = 0.50916627
 Iteration 132, loss = 0.50640226
 Iteration 133, loss = 0.50367140
-Iteration 134, loss = 0.50097664
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 134, loss = 0.50097664
 Iteration 135, loss = 0.49831798
 Iteration 136, loss = 0.49569290
 Iteration 137, loss = 0.49309737
@@ -3116,10 +3133,10 @@ Iteration 158, loss = 0.44488657
 Iteration 159, loss = 0.44287075
 Iteration 160, loss = 0.44087653
 Iteration 161, loss = 0.43890607
+Iteration 162, loss = 0.43695570
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 162, loss = 0.43695570
-Iteration 163, loss = 0.43502487
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 163, loss = 0.43502487
 Iteration 164, loss = 0.43311790
 Iteration 165, loss = 0.43123678
 Iteration 166, loss = 0.42937838
@@ -3147,7 +3164,9 @@ Iteration 187, loss = 0.39475682
 Iteration 188, loss = 0.39329136
 Iteration 189, loss = 0.39183922
 Iteration 190, loss = 0.39040000
-Iteration 191, loss = 0.38897567
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 191, loss = 0.38897567
 Iteration 192, loss = 0.38756583
 Iteration 193, loss = 0.38616852
 Iteration 194, loss = 0.38478464
@@ -3176,7 +3195,9 @@ Iteration 216, loss = 0.35756256
 Iteration 217, loss = 0.35645885
 Iteration 218, loss = 0.35536570
 Iteration 219, loss = 0.35428169
-Iteration 220, loss = 0.35320818
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 220, loss = 0.35320818
 Iteration 221, loss = 0.35214519
 Iteration 222, loss = 0.35109272
 Iteration 223, loss = 0.35005014
@@ -3193,9 +3214,7 @@ Iteration 233, loss = 0.34012749
 Iteration 234, loss = 0.33918176
 Iteration 235, loss = 0.33824400
 Iteration 236, loss = 0.33731422
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 237, loss = 0.33639191
+Iteration 237, loss = 0.33639191
 Iteration 238, loss = 0.33547716
 Training loss did not improve more than tol=0.001000 for 10 consecutive epochs. Stopping.
 </pre></div>
@@ -3223,7 +3242,7 @@ Training loss did not improve more than tol=0.001000 for 10 consecutive epochs. 
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-ae03d953-9547-4929-83be-4f9195383549">
+  <div id="df-9b62a149-ca94-4448-b63b-3c7e68719792">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -3401,7 +3420,7 @@ Training loss did not improve more than tol=0.001000 for 10 consecutive epochs. 
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-ae03d953-9547-4929-83be-4f9195383549')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-9b62a149-ca94-4448-b63b-3c7e68719792')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -3452,12 +3471,12 @@ Training loss did not improve more than tol=0.001000 for 10 consecutive epochs. 
 
       <script>
         const buttonEl =
-          document.querySelector('#df-ae03d953-9547-4929-83be-4f9195383549 button.colab-df-convert');
+          document.querySelector('#df-9b62a149-ca94-4448-b63b-3c7e68719792 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-ae03d953-9547-4929-83be-4f9195383549');
+          const element = document.querySelector('#df-9b62a149-ca94-4448-b63b-3c7e68719792');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -3481,7 +3500,9 @@ Training loss did not improve more than tol=0.001000 for 10 consecutive epochs. 
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="kesimpulan">
 <h1>KESIMPULAN<a class="headerlink" href="#kesimpulan" title="Permalink to this heading">#</a></h1>
-<p>Dari hasil klasifikasi di atas di dapatkan akurasi pelatihan setelah dilakukan PCA adalah sebagai berikut :  NAIVE BAYES = 0,96 KNN = 0,96 TREE = 0,50   ANN= 0,86. pada kalsifikasi menggunakan fitur full atau tanpa PCA di dapatkan akurasi NAIVE BAYES= 1,0 atau 100% , KNN = 1,0 atau 100 % , TREE = 0,74 atau 74% , ANN = 1,0 atau 100%. Maka saya simpulkan bahwa metode naive bayes, KNN dan ANN masih akurat jika menggunakan PCA yang tujuannya mengurangi fitur pada data sehingga mempercepat proses komputasi, namun PCA kurang cocok pada metode DECISION TREE karna menghasilkan akurasi hanya 0,5 atau 50 % dari data testing.</p>
+<p>Dari hasil klasifikasi di atas di dapatkan akurasi pelatihan setelah dilakukan PCA adalah sebagai berikut :  NAIVE BAYES = 0,96 KNN = 0,96 TREE = 0,90   ANN= 0,86.
+pada kalsifikasi menggunakan fitur full atau tanpa PCA di dapatkan akurasi NAIVE BAYES= 1,0 atau 100% , KNN = 1,0 atau 100 % , TREE = 0,93 atau 93% , ANN = 1,0 atau 100%.
+Maka saya simpulkan bahwa metode naive bayes, KNN dan ANN serta Decision Tree untuk mempercepat proses komputasi yang dilakukan komputer bisa menggunakan PCA yang mana fitur di ringkas jadi tidak terlalu banyak fitur.</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -3541,7 +3562,22 @@ Training loss did not improve more than tol=0.001000 for 10 consecutive epochs. 
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">MENGGUNAKAN NAIVE BAYES</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">PRINCIPAL COMPONENT ANALYSIS</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library">IMPORT LIBRARY</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membaca-data-dengan-pandas">MEMBACA DATA DENGAN PANDAS</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#gambar-histogram-dari-4-fitur-data-iris">GAMBAR HISTOGRAM DARI 4 FITUR DATA IRIS</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-dengan-standard-scaler">PREPROCESSING DENGAN STANDARD SCALER</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-serta-menampilkan-matrix-covarian-dari-data-yang-telah-di-normalisasi">MENGHITUNG SERTA MENAMPILKAN MATRIX COVARIAN DARI DATA YANG TELAH DI NORMALISASI</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-eigenvector-serta-eigenvalue-dari-matriks-covarian">MENGHITUNG EIGENVECTOR SERTA EIGENVALUE DARI MATRIKS COVARIAN</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-matriks-korelasi-eigen-vector-dan-value">MENGHITUNG MATRIKS KORELASI, EIGEN VECTOR DAN VALUE</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#verifikasi-eigenvector-dan-mencetak-pesan-jika-valid">Verifikasi eigenvector dan mencetak pesan jika valid</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-persentase-variasi-dan-kumulatif-menggunakan-eigenvalue-terurut">Menghitung persentase variasi dan kumulatif menggunakan eigenvalue terurut</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membuat-gambar-persentase-variasi-dan-variasi-kumulatif">Membuat gambar persentase variasi dan variasi kumulatif</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menggabungkan-2-vektor-eigen-terpilih-menjadi-sebuah-matriks">Menggabungkan 2 vektor eigen terpilih menjadi sebuah matriks</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mengubah-data-x-std-menjadi-matriks-y-sklearn-berdimensi-dua">Mengubah data ‘X_std’ menjadi matriks ‘Y_sklearn’ berdimensi dua</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membuat-scatter-plot-dua-dimensi-dengan-warna-berbeda-untuk-setiap-label">Membuat scatter plot dua dimensi dengan warna berbeda untuk setiap label</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-pca">HASIL PCA</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menggunakan-naive-bayes">MENGGUNAKAN NAIVE BAYES</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menggunakan-knn">MENGGUNAKAN KNN</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menggunakan-decision-tree">MENGGUNAKAN DECISION TREE</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menggunakan-ann">MENGGUNAKAN ANN</a></li>
@@ -3569,8 +3605,10 @@ Lu'luatul Maknunah
   <div class="footer-item">
     
   <p class="copyright">
-Pendata 2023
+    
+      Pendata 2023
       <br/>
+    
   </p>
 
   </div>
