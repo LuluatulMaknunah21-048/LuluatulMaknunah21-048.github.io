@@ -29,7 +29,7 @@ selected=option_menu(
     "nav-link-selected":{
         "background-color":"red"},
     })
-dt= pd.read_csv('https://raw.githubusercontent.com/LuluatulMaknunah21-048/Pendata/main/survey-lung-cancer.csv')
+dt= pd.read_csv('survey-lung-cancer.csv')
 if selected =='Data':
     """#**LOAD DATA**"""
     st.write('data di peroleh dari kaggle : https://www.kaggle.com/code/sandragracenelson/lung-cancer-prediction/input')
