@@ -85,9 +85,6 @@ if selected=='Model':
     data=pd.read_csv('kankerparubersih.csv')
     y = data['LUNG_CANCER']
     x = data.drop(['LUNG_CANCER'], axis=1)
-    
-    import streamlit as st
-
     genre = st.radio(
     "PILIH MODEL : ",
     ('ANN', 'NAIVE BAYES', 'KNN','DECISION TREE'))
