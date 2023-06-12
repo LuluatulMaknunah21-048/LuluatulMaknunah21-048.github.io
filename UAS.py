@@ -29,7 +29,7 @@ selected=option_menu(
     "nav-link-selected":{
         "background-color":"red"},
     })
-dt= pd.read_csv('survey-lung-cancer.csv')
+dt= pd.read_csv('https://raw.githubusercontent.com/LuluatulMaknunah21-048/Pendata/main/survey-lung-cancer.csv')
 if selected =='Data':
     """#**LOAD DATA**"""
     st.write('data di peroleh dari kaggle : https://www.kaggle.com/code/sandragracenelson/lung-cancer-prediction/input')
@@ -114,7 +114,7 @@ if selected=='Model':
         """#**KLASIFIKASI KNN**"""
         x_train, x_test, y_train, y_test = train_test_split(x,y, test_size= 0.2, random_state=21)
         from sklearn.neighbors import KNeighborsClassifier
-        classifierknn = KNeighborsClassifier(n_neighbors=1)
+        classifierknn = KNeighborsClassifier(n_neighbors=5)
         classifierknn.fit(x_train, y_train)
         y_predik= classifierknn.predict(x_test) 
         from sklearn.metrics import confusion_matrix
@@ -228,7 +228,7 @@ if selected=='Implementasi':
             with open('kankerparu.pkl','rb') as r:
                 kanker=pickle.load(r)
             AGE=((AGE-21)/(87-21))*(1-0)+0
-            #st.write(GENDER,AGE,SMOKING,YELLOW_FINGERS,ANXIETY, PEER_PRESSURE, CHRONIC_DISEASE,FATIGUE,ALLERGY, WHEEZING,ALCOHOL_CONSUMING, COUGHING,SHORTNESS_OF_BREATH,SWALLOWING_DIFFICULTY,CHEST_PAIN)
+            st.write(GENDER,AGE,SMOKING,YELLOW_FINGERS,ANXIETY, PEER_PRESSURE, CHRONIC_DISEASE,FATIGUE,ALLERGY, WHEEZING,ALCOHOL_CONSUMING, COUGHING,SHORTNESS_OF_BREATH,SWALLOWING_DIFFICULTY,CHEST_PAIN)
             
             deteksi=kanker.predict([[GENDER,AGE,SMOKING,YELLOW_FINGERS,ANXIETY, PEER_PRESSURE, CHRONIC_DISEASE,FATIGUE,ALLERGY, WHEEZING,ALCOHOL_CONSUMING, COUGHING,SHORTNESS_OF_BREATH,SWALLOWING_DIFFICULTY,CHEST_PAIN]])
             for detect in deteksi:
